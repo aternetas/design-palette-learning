@@ -2,6 +2,8 @@
 <resources>
     <color name="button_text_color">#FFFFFFFF</color>
     <color name="button_background_color">#00BFA5</color>
+    <color name="text_view_text_color">#D50000</color>
+    <color name="text_view_background">#33B8B4B4</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>

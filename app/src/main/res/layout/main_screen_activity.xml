@@ -7,8 +7,8 @@
     tools:context=".activities.MainScreenActivity">
 
     <Button
-        android:id="@+id/button_text_view"
-        android:layout_width="wrap_content"
+        android:id="@+id/buttonTextView"
+        android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/button_background_color"
         android:fontFamily="@font/chewy"
@@ -21,4 +21,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.23000002" />
+
+    <Button
+        android:id="@+id/buttonImageView"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/button_background_color"
+        android:fontFamily="@font/chewy"
+        android:onClick="onImageView"
+        android:text="@string/button_image_view"
+        android:textColor="@color/button_text_color"
+        app:layout_constraintEnd_toEndOf="@+id/buttonTextView"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="@+id/buttonTextView"
+        app:layout_constraintTop_toBottomOf="@+id/buttonTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

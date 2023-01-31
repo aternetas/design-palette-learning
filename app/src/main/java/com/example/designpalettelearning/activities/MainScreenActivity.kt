@@ -7,17 +7,24 @@ import com.example.designpalettelearning.activities.extensions.MyAppCompatActivi
 import com.example.designpalettelearning.databinding.MainScreenActivityBinding
 
 class MainScreenActivity : MyAppCompatActivity("MainScreen") {
-    lateinit var bindingClass: MainScreenActivityBinding
+    lateinit var binding: MainScreenActivityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        bindingClass = MainScreenActivityBinding.inflate(layoutInflater)
-        setContentView(bindingClass.root)
+        binding = MainScreenActivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 
     fun onTextView(view: View){
-        bindingClass.buttonTextView.setOnClickListener {
+        binding.buttonTextView.setOnClickListener {
             val intent = Intent(this, TextViewActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    fun onImageView(view: View){
+        binding.buttonImageView.setOnClickListener {
+            val intent = Intent(this, ImageViewActivity::class.java)
             startActivity(intent)
         }
     }
