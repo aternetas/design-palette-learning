@@ -1,3 +1,5 @@
+app/
+
 # Compiled class file
 *.class
 
@@ -16,8 +18,11 @@ out/
 .mtj.tmp/
 
 #Gradle files
+.idea/
 .gradle/
 build/
+*.gradle
+*.properties
 *.bin
 *.lock
 
@@ -29,3 +34,4 @@ build/
 *.zip
 *.tar.gz
 *.rar
+*.bat
