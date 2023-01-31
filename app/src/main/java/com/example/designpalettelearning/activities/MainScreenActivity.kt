@@ -28,4 +28,11 @@ class MainScreenActivity : MyAppCompatActivity("MainScreen") {
             startActivity(intent)
         }
     }
+
+    fun onButton(view: View){
+        binding.buttonButton.setOnClickListener {
+            val intent = Intent(this, ButtonActivity::class.java)
+            startActivity(intent)
+        }
+    }
 }

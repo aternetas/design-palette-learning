@@ -35,4 +35,18 @@
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="@+id/buttonTextView"
         app:layout_constraintTop_toBottomOf="@+id/buttonTextView" />
+
+    <Button
+        android:id="@+id/buttonButton"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/button_background_color"
+        android:fontFamily="@font/chewy"
+        android:onClick="onButton"
+        android:text="@string/button_button"
+        android:textColor="@color/button_text_color"
+        app:layout_constraintEnd_toEndOf="@+id/buttonImageView"
+        app:layout_constraintStart_toStartOf="@+id/buttonImageView"
+        app:layout_constraintTop_toBottomOf="@+id/buttonImageView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,7 +23,7 @@
         app:srcCompat="@drawable/drivingthroughthesavanna" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/randomImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
@@ -40,8 +40,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/android_launcher_icon_description"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintEnd_toEndOf="@+id/randomImageView"
+        app:layout_constraintStart_toStartOf="@+id/randomImageView"
+        app:layout_constraintTop_toBottomOf="@+id/randomImageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
