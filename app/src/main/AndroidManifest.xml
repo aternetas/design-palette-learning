@@ -13,15 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DesignPaletteLearning"
         tools:targetApi="31">
-        <activity
-            android:name=".EditTextActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".activities.MainScreenActivity"
             android:exported="true">
@@ -39,6 +31,9 @@
             android:exported="false" />
         <activity
             android:name=".activities.ButtonActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.EditTextActivity"
             android:exported="false" />
     </application>
 

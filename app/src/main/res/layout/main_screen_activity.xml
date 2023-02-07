@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="onEditTextPressed"
     tools:context=".activities.MainScreenActivity">
 
     <Button
@@ -12,7 +13,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/button_background_color"
         android:fontFamily="@font/chewy"
-        android:onClick="onTextView"
+        android:onClick="onTextViewPressed"
         android:text="@string/button_text_view"
         android:textColor="@color/button_text_color"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -28,7 +29,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/button_background_color"
         android:fontFamily="@font/chewy"
-        android:onClick="onImageView"
+        android:onClick="onImageViewPressed"
         android:text="@string/button_image_view"
         android:textColor="@color/button_text_color"
         app:layout_constraintEnd_toEndOf="@+id/buttonTextView"
@@ -42,11 +43,24 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/button_background_color"
         android:fontFamily="@font/chewy"
-        android:onClick="onButton"
+        android:onClick="onButtonPressed"
         android:text="@string/button_button"
         android:textColor="@color/button_text_color"
         app:layout_constraintEnd_toEndOf="@+id/buttonImageView"
         app:layout_constraintStart_toStartOf="@+id/buttonImageView"
         app:layout_constraintTop_toBottomOf="@+id/buttonImageView" />
+
+    <Button
+        android:id="@+id/buttonEditText"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/button_background_color"
+        android:fontFamily="@font/chewy"
+        android:onClick="onEditTextPressed"
+        android:text="@string/button_edit_text"
+        android:textColor="@color/button_text_color"
+        app:layout_constraintEnd_toEndOf="@+id/buttonButton"
+        app:layout_constraintStart_toStartOf="@+id/buttonButton"
+        app:layout_constraintTop_toBottomOf="@+id/buttonButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

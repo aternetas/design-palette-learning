@@ -3,9 +3,11 @@
     <string name="button_text_view">Text View</string>
     <string name="button_image_view">Image View</string>
     <string name="button_button">Button</string>
+    <string name="button_edit_text">Edit Text</string>
     <string name="a_frog">A frog</string>
     <string name="ordinals">first second third fourth fifth sixth seventh eights</string>
     <string name="get_random_image">Get random image</string>
-    <string name="image_view1_description">a truck is parked in front of a mountain</string>
+    <string name="a_truck_is_parked">a truck is parked in front of a mountain</string>
     <string name="android_launcher_icon_description">android launcher icon</string>
+    <string name="enter_key_word">Enter key word</string>
 </resources>

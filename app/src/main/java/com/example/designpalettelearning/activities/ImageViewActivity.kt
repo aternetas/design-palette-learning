@@ -17,8 +17,8 @@ class ImageViewActivity : MyAppCompatActivity("ImageView") {
         binding.imageView3.setImageResource(R.drawable.ic_launcher_foreground)
 
         with(binding.imageView3.layoutParams){
-            this.width = resources.getDimensionPixelSize(R.dimen.image_view_width)
-            this.height = resources.getDimensionPixelSize(R.dimen.image_view_heigth)
+            this.width = resources.getDimensionPixelSize(R.dimen.image_width)
+            this.height = resources.getDimensionPixelSize(R.dimen.image_heigth)
         }
 
         binding.imageView3.requestLayout()
