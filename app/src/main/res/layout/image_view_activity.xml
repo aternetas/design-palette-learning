@@ -11,7 +11,7 @@
         android:id="@+id/imageView1"
         android:layout_width="113dp"
         android:layout_height="152dp"
-        android:contentDescription="@string/image_view1_description"
+        android:contentDescription="@string/a_truck_is_parked"
         android:rotationY="21"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -26,7 +26,7 @@ class ButtonActivity : MyAppCompatActivity("Button") {
         }
     }
 
-    fun onGetRandomImagePressed(){
+    fun onGetRandomImagePressed() {
         binding.randomImageView.setBackgroundColor(Color.WHITE)
         Glide.with(this)
             .load("https://source.unsplash.com/random/800x600")

@@ -15,23 +15,30 @@ class MainScreenActivity : MyAppCompatActivity("MainScreen") {
         setContentView(binding.root)
     }
 
-    fun onTextView(view: View){
+    fun onTextViewPressed(view: View) {
         binding.buttonTextView.setOnClickListener {
             val intent = Intent(this, TextViewActivity::class.java)
             startActivity(intent)
         }
     }
 
-    fun onImageView(view: View){
+    fun onImageViewPressed(view: View) {
         binding.buttonImageView.setOnClickListener {
             val intent = Intent(this, ImageViewActivity::class.java)
             startActivity(intent)
         }
     }
 
-    fun onButton(view: View){
+    fun onButtonPressed(view: View) {
         binding.buttonButton.setOnClickListener {
             val intent = Intent(this, ButtonActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    fun onEditTextPressed(view: View) {
+        binding.buttonEditText.setOnClickListener {
+            val intent = Intent(this, EditTextActivity::class.java)
             startActivity(intent)
         }
     }

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.EditTextActivity">
+
+    <EditText
+        android:id="@+id/keywordEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin"
+        android:ems="10"
+        android:hint="@string/enter_key_word"
+        android:imeOptions="actionSearch"
+        android:autofillHints="name"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/getRandomImageButton2"
+        app:layout_constraintStart_toStartOf="@+id/getRandomImageButton2"
+        app:layout_constraintTop_toBottomOf="@+id/getRandomImageButton2" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/image_width"
+        android:layout_height="@dimen/image_heigth"
+        android:layout_marginTop="@dimen/common_margin"
+        android:contentDescription="@string/a_truck_is_parked"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/drivingthroughthesavanna" />
+
+    <Button
+        android:id="@+id/getRandomImageButton2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin"
+        android:backgroundTint="@color/button_background_color"
+        android:fontFamily="@font/chewy"
+        android:onClick="onGetRandomImagePressed"
+        android:text="@string/get_random_image"
+        android:textSize="@dimen/text_size3"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

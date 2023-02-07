@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/randomImageView"
-        android:layout_width="@dimen/image_view_width"
-        android:layout_height="@dimen/image_view_heigth"
+        android:layout_width="@dimen/image_width"
+        android:layout_height="@dimen/image_heigth"
         android:background="@drawable/circle_background"
         android:contentDescription="@string/android_launcher_icon_description"
         app:layout_constraintBottom_toBottomOf="parent"

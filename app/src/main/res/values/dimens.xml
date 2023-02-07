@@ -2,6 +2,8 @@
     <dimen name="button_width">115dp</dimen>
     <dimen name="text_size1">45sp</dimen>
     <dimen name="text_size2">34sp</dimen>
-    <dimen name="image_view_heigth">350dp</dimen>
-    <dimen name="image_view_width">350dp</dimen>
+    <dimen name="text_size3">18sp</dimen>
+    <dimen name="common_margin">30dp</dimen>
+    <dimen name="image_heigth">350dp</dimen>
+    <dimen name="image_width">350dp</dimen>
 </resources>

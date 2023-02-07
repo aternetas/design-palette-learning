@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DesignPaletteLearning"
         tools:targetApi="31">
+
         <activity
             android:name=".activities.MainScreenActivity"
             android:exported="true">
@@ -30,6 +31,9 @@
             android:exported="false" />
         <activity
             android:name=".activities.ButtonActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.EditTextActivity"
             android:exported="false" />
     </application>
 
