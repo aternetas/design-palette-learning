@@ -29,23 +29,37 @@ class EditTextActivity : MyAppCompatActivity("EditText") {
             }
             return@setOnEditorActionListener false
         }
+
+        binding.useKeywordCheckBox.setOnCheckedChangeListener { _, _ ->
+            updateUi()
+        }
+
+        updateUi()
     }
 
     fun onGetRandomImagePressed(): Boolean {
         val keyword = binding.keywordEditText.text.toString()
-        if (keyword.isBlank()) {
+        if (binding.useKeywordCheckBox.isChecked && keyword.isBlank()) {
             binding.keywordEditText.error = "Keyword is empty"
             return true
         }
 
         val encodedKeyword = URLEncoder.encode(keyword, StandardCharsets.UTF_8.name())
         Glide.with(this)
-            .load("https://source.unsplash.com/random/800x600?$encodedKeyword")
+            .load("https://source.unsplash.com/random/800x600 ${if(binding.useKeywordCheckBox.isChecked) "?$encodedKeyword" else "?"}")
             .skipMemoryCache(true)
             .diskCacheStrategy(DiskCacheStrategy.NONE)
             .placeholder(R.drawable.image_downloading)
             .into(binding.imageView)
 
         return false
+    }
+
+    private fun updateUi() = with(binding) {
+        if (binding.useKeywordCheckBox.isChecked) {
+            binding.keywordEditText.visibility = View.VISIBLE
+        } else {
+            binding.keywordEditText.visibility = View.GONE
+        }
     }
 }

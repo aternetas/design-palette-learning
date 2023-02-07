@@ -11,14 +11,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_margin"
+        android:autofillHints="name"
         android:ems="10"
         android:hint="@string/enter_key_word"
         android:imeOptions="actionSearch"
-        android:autofillHints="name"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="@+id/getRandomImageButton2"
-        app:layout_constraintStart_toStartOf="@+id/getRandomImageButton2"
-        app:layout_constraintTop_toBottomOf="@+id/getRandomImageButton2" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/useKeywordCheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/useKeywordCheckBox" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -31,6 +32,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/drivingthroughthesavanna" />
+
+    <CheckBox
+        android:id="@+id/useKeywordCheckBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_margin"
+        android:text="@string/use_keyword"
+        app:layout_constraintStart_toStartOf="@+id/getRandomImageButton2"
+        app:layout_constraintTop_toBottomOf="@+id/getRandomImageButton2" />
 
     <Button
         android:id="@+id/getRandomImageButton2"
