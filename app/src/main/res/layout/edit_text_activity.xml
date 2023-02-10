@@ -10,12 +10,12 @@
         android:id="@+id/keywordEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/common_margin"
         android:autofillHints="name"
         android:ems="10"
         android:hint="@string/enter_key_word"
         android:imeOptions="actionSearch"
         android:inputType="text"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/getRandomImageButton2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/useKeywordCheckBox"
@@ -25,7 +25,7 @@
         android:id="@+id/imageView"
         android:layout_width="@dimen/image_width"
         android:layout_height="@dimen/image_heigth"
-        android:layout_marginTop="@dimen/common_margin"
+        android:layout_marginTop="@dimen/common_margin_1"
         android:contentDescription="@string/a_truck_is_parked"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,9 +35,9 @@
 
     <CheckBox
         android:id="@+id/useKeywordCheckBox"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/common_margin"
+        android:layout_marginTop="@dimen/margin_between_components"
         android:text="@string/use_keyword"
         app:layout_constraintStart_toStartOf="@+id/getRandomImageButton2"
         app:layout_constraintTop_toBottomOf="@+id/getRandomImageButton2" />
@@ -46,14 +46,26 @@
         android:id="@+id/getRandomImageButton2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/common_margin"
+        android:layout_marginTop="@dimen/margin_between_components"
         android:backgroundTint="@color/button_background_color"
         android:fontFamily="@font/chewy"
         android:onClick="onGetRandomImagePressed"
         android:text="@string/get_random_image"
-        android:textSize="@dimen/text_size3"
+        android:textSize="@dimen/text_size_3"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/showCheckboxSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center|end"
+        android:showText="false"
+        android:singleLine="false"
+        android:text="@string/show_advanced_settings"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/getRandomImageButton2"
+        app:layout_constraintTop_toBottomOf="@+id/getRandomImageButton2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

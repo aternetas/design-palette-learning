@@ -11,7 +11,7 @@ class MainScreenActivity : MyAppCompatActivity("MainScreen") {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = MainScreenActivityBinding.inflate(layoutInflater)
+        binding = com.example.designpalettelearning.databinding.MainScreenActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 

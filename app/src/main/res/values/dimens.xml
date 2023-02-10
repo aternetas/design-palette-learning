@@ -1,9 +1,11 @@
 <resources>
     <dimen name="button_width">115dp</dimen>
-    <dimen name="text_size1">45sp</dimen>
-    <dimen name="text_size2">34sp</dimen>
-    <dimen name="text_size3">18sp</dimen>
-    <dimen name="common_margin">30dp</dimen>
+    <dimen name="text_size_1">45sp</dimen>
+    <dimen name="text_size_2">34sp</dimen>
+    <dimen name="text_size_3">18sp</dimen>
+    <dimen name="margin_between_components">30dp</dimen>
+    <dimen name="common_margin_1">50dp</dimen>
+    <dimen name="common_margin_2">10dp</dimen>
     <dimen name="image_heigth">350dp</dimen>
     <dimen name="image_width">350dp</dimen>
 </resources>

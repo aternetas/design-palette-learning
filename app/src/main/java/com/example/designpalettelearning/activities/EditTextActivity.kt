@@ -23,6 +23,10 @@ class EditTextActivity : MyAppCompatActivity("EditText") {
             onGetRandomImagePressed()
         }
 
+        binding.showCheckboxSwitch.setOnCheckedChangeListener { _, _ ->
+            updateUi()
+        }
+
         binding.keywordEditText.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 return@setOnEditorActionListener onGetRandomImagePressed()
@@ -56,10 +60,16 @@ class EditTextActivity : MyAppCompatActivity("EditText") {
     }
 
     private fun updateUi() = with(binding) {
-        if (binding.useKeywordCheckBox.isChecked) {
-            binding.keywordEditText.visibility = View.VISIBLE
+        if (showCheckboxSwitch.isChecked){
+            useKeywordCheckBox.visibility = View.VISIBLE
+
+            if (useKeywordCheckBox.isChecked) {
+                keywordEditText.visibility = View.VISIBLE
+            } else {
+                keywordEditText.visibility = View.GONE
+            }
         } else {
-            binding.keywordEditText.visibility = View.GONE
+            useKeywordCheckBox.visibility = View.GONE
         }
     }
 }

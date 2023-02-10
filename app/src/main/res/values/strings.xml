@@ -11,4 +11,5 @@
     <string name="android_launcher_icon_description">android launcher icon</string>
     <string name="enter_key_word">Enter key word</string>
     <string name="use_keyword">Use keyword</string>
+    <string name="show_advanced_settings">Show advanced settings</string>
 </resources>
