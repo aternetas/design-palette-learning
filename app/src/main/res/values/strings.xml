@@ -9,7 +9,12 @@
     <string name="get_random_image">Get random image</string>
     <string name="a_truck_is_parked">a truck is parked in front of a mountain</string>
     <string name="android_launcher_icon_description">android launcher icon</string>
-    <string name="enter_key_word">Enter key word</string>
-    <string name="use_keyword">Use keyword</string>
     <string name="show_advanced_settings">Show advanced settings</string>
+    <string name="select_the_keyword">Select the keyword</string>
+    <string name="tree">Tree</string>
+    <string name="cat">Cat</string>
+    <string name="dog">Dog</string>
+    <string name="city">City</string>
+    <string name="print_a_keyword">Print a keyword</string>
+    <string name="enter_keyword">Enter keyword</string>
 </resources>

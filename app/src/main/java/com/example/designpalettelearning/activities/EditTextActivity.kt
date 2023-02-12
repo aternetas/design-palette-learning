@@ -12,7 +12,7 @@ import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
 
 class EditTextActivity : MyAppCompatActivity("EditText") {
-    lateinit var binding: EditTextActivityBinding
+    private lateinit var binding: EditTextActivityBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,19 +23,23 @@ class EditTextActivity : MyAppCompatActivity("EditText") {
             onGetRandomImagePressed()
         }
 
-        binding.showCheckboxSwitch.setOnCheckedChangeListener { _, _ ->
+        binding.showAdvancedSettingsSwitch.setOnCheckedChangeListener { _, _ ->
             updateUi()
         }
 
-        binding.keywordEditText.setOnEditorActionListener { _, actionId, _ ->
+        binding.selectAKeywordCheckBox.setOnCheckedChangeListener { _, isChecked ->
+            updateUi()
+        }
+
+        binding.printAKeywordCheckBox.setOnCheckedChangeListener { _, _ ->
+            updateUi()
+        }
+
+        binding.printAKeywordCheckBox.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 return@setOnEditorActionListener onGetRandomImagePressed()
             }
             return@setOnEditorActionListener false
-        }
-
-        binding.useKeywordCheckBox.setOnCheckedChangeListener { _, _ ->
-            updateUi()
         }
 
         updateUi()
@@ -43,14 +47,14 @@ class EditTextActivity : MyAppCompatActivity("EditText") {
 
     fun onGetRandomImagePressed(): Boolean {
         val keyword = binding.keywordEditText.text.toString()
-        if (binding.useKeywordCheckBox.isChecked && keyword.isBlank()) {
+        if (binding.printAKeywordCheckBox.isChecked && keyword.isBlank()) {
             binding.keywordEditText.error = "Keyword is empty"
             return true
         }
 
         val encodedKeyword = URLEncoder.encode(keyword, StandardCharsets.UTF_8.name())
         Glide.with(this)
-            .load("https://source.unsplash.com/random/800x600 ${if(binding.useKeywordCheckBox.isChecked) "?$encodedKeyword" else "?"}")
+            .load("https://source.unsplash.com/random/800x600 ${if(binding.printAKeywordCheckBox.isChecked) "?$encodedKeyword" else "?"}")
             .skipMemoryCache(true)
             .diskCacheStrategy(DiskCacheStrategy.NONE)
             .placeholder(R.drawable.image_downloading)
@@ -60,16 +64,25 @@ class EditTextActivity : MyAppCompatActivity("EditText") {
     }
 
     private fun updateUi() = with(binding) {
-        if (showCheckboxSwitch.isChecked){
-            useKeywordCheckBox.visibility = View.VISIBLE
+        if (showAdvancedSettingsSwitch.isChecked){
+            selectAKeywordCheckBox.visibility = View.VISIBLE
+            printAKeywordCheckBox.visibility = View.VISIBLE
 
-            if (useKeywordCheckBox.isChecked) {
+            if (selectAKeywordCheckBox.isChecked) {
+                keywordsRadioGroup.visibility= View.VISIBLE
+            } else {
+                keywordsRadioGroup.visibility= View.GONE
+            }
+
+            if (printAKeywordCheckBox.isChecked) {
                 keywordEditText.visibility = View.VISIBLE
             } else {
                 keywordEditText.visibility = View.GONE
             }
+
         } else {
-            useKeywordCheckBox.visibility = View.GONE
+            printAKeywordCheckBox.visibility = View.GONE
+            printAKeywordCheckBox.visibility = View.GONE
         }
     }
 }
