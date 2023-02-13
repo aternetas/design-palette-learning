@@ -6,41 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".activities.EditTextActivity">
 
-    <EditText
-        android:id="@+id/keywordEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:autofillHints="name"
-        android:ems="10"
-        android:hint="@string/enter_key_word"
-        android:imeOptions="actionSearch"
-        android:inputType="text"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/getRandomImageButton2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/useKeywordCheckBox"
-        app:layout_constraintTop_toBottomOf="@+id/useKeywordCheckBox" />
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="@dimen/image_width"
         android:layout_height="@dimen/image_heigth"
-        android:layout_marginTop="@dimen/common_margin_1"
+        android:layout_marginTop="@dimen/margin_between_components"
         android:contentDescription="@string/a_truck_is_parked"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/drivingthroughthesavanna" />
-
-    <CheckBox
-        android:id="@+id/useKeywordCheckBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_between_components"
-        android:text="@string/use_keyword"
-        app:layout_constraintStart_toStartOf="@+id/getRandomImageButton2"
-        app:layout_constraintTop_toBottomOf="@+id/getRandomImageButton2" />
 
     <Button
         android:id="@+id/getRandomImageButton2"
@@ -57,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/showCheckboxSwitch"
+        android:id="@+id/showAdvancedSettingsSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center|end"
@@ -67,5 +43,83 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@+id/getRandomImageButton2"
         app:layout_constraintTop_toBottomOf="@+id/getRandomImageButton2" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/checkBoxesCL"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/showAdvancedSettingsSwitch"
+        app:layout_constraintStart_toStartOf="@+id/getRandomImageButton2"
+        app:layout_constraintTop_toBottomOf="@+id/showAdvancedSettingsSwitch">
+
+        <CheckBox
+            android:id="@+id/selectAKeywordCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_a_keyword"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <CheckBox
+            android:id="@+id/enterAKeywordCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/enter_a_keyword"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/keywordsRadioGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:checkedButton="@id/treeRadioButton"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selectAKeywordCheckBox">
+
+            <RadioButton
+                android:id="@+id/treeRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tree" />
+
+            <RadioButton
+                android:id="@+id/catRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cat" />
+
+            <RadioButton
+                android:id="@+id/dogRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dog" />
+
+            <RadioButton
+                android:id="@+id/cityRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/city" />
+
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/keywordEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:autofillHints="name"
+            android:ems="10"
+            android:hint="@string/enter_keyword"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selectAKeywordCheckBox" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
