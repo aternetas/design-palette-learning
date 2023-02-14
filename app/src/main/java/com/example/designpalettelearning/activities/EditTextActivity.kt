@@ -1,11 +1,17 @@
 package com.example.designpalettelearning.activities
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.RadioButton
 import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.example.designpalettelearning.R
 import com.example.designpalettelearning.activities.constants.InputType
 import com.example.designpalettelearning.activities.extensions.MyAppCompatActivity
@@ -90,11 +96,24 @@ class EditTextActivity : MyAppCompatActivity("EditText") {
             }
         }
 
+        binding.progressBar.visibility = View.VISIBLE
         Glide.with(this)
             .load("https://source.unsplash.com/random/800x600?$encodedKeyword")
             .skipMemoryCache(true)
             .diskCacheStrategy(DiskCacheStrategy.NONE)
-            .placeholder(R.drawable.image_downloading)
+            .listener(object: RequestListener<Drawable> {
+                override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
+                    binding.progressBar.visibility = View.GONE
+                    return false
+                }
+
+                override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+                    binding.progressBar.visibility = View.GONE
+                    return false
+                }
+            })
+//                for background image during loading
+//            .placeholder(R.drawable.image_downloading)
             .into(binding.imageView)
     }
 
