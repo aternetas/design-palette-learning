@@ -4,61 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:onClick="onEditTextPressed"
     tools:context=".activities.MainScreenActivity">
 
     <Button
+        style="@style/MyButtonStyle"
         android:id="@+id/buttonTextView"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/button_background_color"
-        android:fontFamily="@font/chewy"
         android:onClick="onTextViewPressed"
         android:text="@string/button_text_view"
-        android:textColor="@color/button_text_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.23000002" />
 
     <Button
+        style="@style/MyButtonStyle"
         android:id="@+id/buttonImageView"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/button_background_color"
-        android:fontFamily="@font/chewy"
         android:onClick="onImageViewPressed"
         android:text="@string/button_image_view"
-        android:textColor="@color/button_text_color"
         app:layout_constraintEnd_toEndOf="@+id/buttonTextView"
-        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="@+id/buttonTextView"
         app:layout_constraintTop_toBottomOf="@+id/buttonTextView" />
 
     <Button
+        style="@style/MyButtonStyle"
         android:id="@+id/buttonButton"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/button_background_color"
-        android:fontFamily="@font/chewy"
         android:onClick="onButtonPressed"
         android:text="@string/button_button"
-        android:textColor="@color/button_text_color"
         app:layout_constraintEnd_toEndOf="@+id/buttonImageView"
         app:layout_constraintStart_toStartOf="@+id/buttonImageView"
         app:layout_constraintTop_toBottomOf="@+id/buttonImageView" />
 
     <Button
+        style="@style/MyButtonStyle"
         android:id="@+id/buttonEditText"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/button_background_color"
-        android:fontFamily="@font/chewy"
         android:onClick="onEditTextPressed"
         android:text="@string/button_edit_text"
-        android:textColor="@color/button_text_color"
         app:layout_constraintEnd_toEndOf="@+id/buttonButton"
         app:layout_constraintStart_toStartOf="@+id/buttonButton"
         app:layout_constraintTop_toBottomOf="@+id/buttonButton" />
