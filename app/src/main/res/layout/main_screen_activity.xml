@@ -7,9 +7,8 @@
     tools:context=".activities.MainScreenActivity">
 
     <Button
-        style="@style/MyButtonStyle"
         android:id="@+id/buttonTextView"
-        android:onClick="onTextViewPressed"
+        style="@style/MyButtonStyle"
         android:text="@string/button_text_view"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,30 +17,40 @@
         app:layout_constraintVertical_bias="0.23000002" />
 
     <Button
-        style="@style/MyButtonStyle"
         android:id="@+id/buttonImageView"
-        android:onClick="onImageViewPressed"
+        style="@style/MyButtonStyle"
         android:text="@string/button_image_view"
         app:layout_constraintEnd_toEndOf="@+id/buttonTextView"
         app:layout_constraintStart_toStartOf="@+id/buttonTextView"
         app:layout_constraintTop_toBottomOf="@+id/buttonTextView" />
 
     <Button
-        style="@style/MyButtonStyle"
         android:id="@+id/buttonButton"
-        android:onClick="onButtonPressed"
+        style="@style/MyButtonStyle"
         android:text="@string/button_button"
         app:layout_constraintEnd_toEndOf="@+id/buttonImageView"
         app:layout_constraintStart_toStartOf="@+id/buttonImageView"
         app:layout_constraintTop_toBottomOf="@+id/buttonImageView" />
 
     <Button
-        style="@style/MyButtonStyle"
         android:id="@+id/buttonEditText"
-        android:onClick="onEditTextPressed"
+        style="@style/MyButtonStyle"
         android:text="@string/button_edit_text"
         app:layout_constraintEnd_toEndOf="@+id/buttonButton"
         app:layout_constraintStart_toStartOf="@+id/buttonButton"
         app:layout_constraintTop_toBottomOf="@+id/buttonButton" />
+
+    <ProgressBar
+        android:id="@+id/progressBarHorizontal"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:indeterminate="false"
+        android:layout_marginBottom="@dimen/common_margin_30_dp"
+        android:scaleY="3"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

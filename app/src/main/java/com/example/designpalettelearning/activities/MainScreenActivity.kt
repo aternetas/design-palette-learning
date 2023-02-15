@@ -1,8 +1,10 @@
 package com.example.designpalettelearning.activities
 
+import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
+import androidx.core.animation.doOnEnd
+import androidx.core.view.isVisible
 import com.example.designpalettelearning.activities.extensions.MyAppCompatActivity
 import com.example.designpalettelearning.databinding.MainScreenActivityBinding
 
@@ -11,35 +13,51 @@ class MainScreenActivity : MyAppCompatActivity("MainScreen") {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = com.example.designpalettelearning.databinding.MainScreenActivityBinding.inflate(layoutInflater)
+        binding = MainScreenActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        createActions()
     }
 
-    fun onTextViewPressed(view: View) {
+    private fun createActions() {
         binding.buttonTextView.setOnClickListener {
             val intent = Intent(this, TextViewActivity::class.java)
-            startActivity(intent)
+            showProgressBar { if (it) { startActivity(intent) } }
         }
-    }
 
-    fun onImageViewPressed(view: View) {
         binding.buttonImageView.setOnClickListener {
             val intent = Intent(this, ImageViewActivity::class.java)
-            startActivity(intent)
+            showProgressBar { if (it) { startActivity(intent) } }
         }
-    }
 
-    fun onButtonPressed(view: View) {
         binding.buttonButton.setOnClickListener {
             val intent = Intent(this, ButtonActivity::class.java)
-            startActivity(intent)
+            showProgressBar { if (it) { startActivity(intent) } }
+
+        }
+
+        binding.buttonEditText.setOnClickListener {
+            val intent = Intent(this, EditTextActivity::class.java)
+            showProgressBar { if (it) { startActivity(intent) } }
         }
     }
 
-    fun onEditTextPressed(view: View) {
-        binding.buttonEditText.setOnClickListener {
-            val intent = Intent(this, EditTextActivity::class.java)
-            startActivity(intent)
+    private fun showProgressBar(compl: (Boolean) -> Unit) {
+        val finishProgress = 1000
+        with(binding.progressBarHorizontal) {
+            this.max = finishProgress
+            this.isVisible = true
+
+            val animator = ObjectAnimator
+                .ofInt(this, "progress", finishProgress)
+                .setDuration(2000)
+
+            animator.doOnEnd {
+                this.isVisible = false
+                this.progress = 0
+                compl(true)
+            }
+            animator.start()
         }
     }
 }
