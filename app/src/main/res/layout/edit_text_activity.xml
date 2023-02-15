@@ -44,7 +44,7 @@
         android:id="@+id/checkBoxesCL"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/showAdvancedSettingsSwitch"
         app:layout_constraintStart_toStartOf="@+id/getRandomImageButton2"
@@ -73,7 +73,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:checkedButton="@id/treeRadioButton"
-            android:visibility="gone"
+            android:paddingStart="24dp"
+            android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/selectAKeywordCheckBox">
 
@@ -81,24 +82,28 @@
                 android:id="@+id/treeRadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="-10dp"
                 android:text="@string/tree" />
 
             <RadioButton
                 android:id="@+id/catRadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="-14dp"
                 android:text="@string/cat" />
 
             <RadioButton
                 android:id="@+id/dogRadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="-14dp"
                 android:text="@string/dog" />
 
             <RadioButton
                 android:id="@+id/cityRadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="-14dp"
                 android:text="@string/city" />
 
         </RadioGroup>

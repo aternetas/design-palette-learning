@@ -34,6 +34,7 @@
             android:exported="false" />
         <activity
             android:name=".activities.EditTextActivity"
+            android:launchMode="singleInstance"
             android:exported="false" />
     </application>
 

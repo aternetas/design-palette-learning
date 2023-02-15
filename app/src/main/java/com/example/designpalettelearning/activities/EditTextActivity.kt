@@ -3,9 +3,11 @@ package com.example.designpalettelearning.activities
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.RadioButton
-import androidx.core.view.isVisible
+import android.widget.RadioGroup
+import androidx.core.view.*
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -112,8 +114,8 @@ class EditTextActivity : MyAppCompatActivity("EditText") {
                     return false
                 }
             })
-//                for background image during loading
-//            .placeholder(R.drawable.image_downloading)
+//for background image during loading
+//          .placeholder(R.drawable.image_downloading)
             .into(binding.imageView)
     }
 
