@@ -40,6 +40,11 @@ class EditTextActivity : MyAppCompatActivity("EditText") {
         binding = EditTextActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        createActions()
+        updateUi()
+    }
+
+    private fun createActions() {
         binding.getRandomImageButton2.setOnClickListener {
             onGetRandomImagePressed()
         }
@@ -75,11 +80,9 @@ class EditTextActivity : MyAppCompatActivity("EditText") {
             }
             return@setOnEditorActionListener false
         }
-
-        updateUi()
     }
 
-    fun onGetRandomImagePressed() {
+    private fun onGetRandomImagePressed() {
         when (inputType) {
             InputType.SELECT -> {
                 val checkId = binding.keywordsRadioGroup.checkedRadioButtonId
@@ -89,6 +92,7 @@ class EditTextActivity : MyAppCompatActivity("EditText") {
             InputType.ENTER -> {
                 keyword = binding.keywordEditText.text.toString()
                 if (keyword.isBlank()) {
+                    binding.keywordEditText.error = "Keyword is empty"
                     return
                 }
             }
@@ -98,6 +102,10 @@ class EditTextActivity : MyAppCompatActivity("EditText") {
             }
         }
 
+        uploadAndSetImage()
+    }
+
+    private fun uploadAndSetImage() {
         binding.progressBar.visibility = View.VISIBLE
         Glide.with(this)
             .load("https://source.unsplash.com/random/800x600?$encodedKeyword")
