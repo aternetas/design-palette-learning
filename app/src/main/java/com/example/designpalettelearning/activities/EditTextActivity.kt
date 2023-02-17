@@ -128,7 +128,7 @@ class EditTextActivity : MyAppCompatActivity("EditText") {
     }
 
     private fun updateUi() = with(binding) {
-        checkBoxesCL.isVisible = showAdvancedSettingsSwitch.isChecked
+        checkBoxesGroup.isVisible = showAdvancedSettingsSwitch.isChecked
 
         when (inputType) {
             InputType.SELECT -> {
