@@ -29,6 +29,12 @@ open class MyAppCompatActivity(_activityName: String) : AppCompatActivity() {
         Log.d(activityName, "onResume called")
     }
 
+    override fun onPostResume() {
+        super.onPostResume()
+
+        Log.d(activityName, "onPostResume called")
+    }
+
     override fun onPause() {
         super.onPause()
 
@@ -39,6 +45,12 @@ open class MyAppCompatActivity(_activityName: String) : AppCompatActivity() {
         super.onStop()
 
         Log.d(activityName, "onStop called")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+
+        Log.d(activityName, "onRestart called")
     }
 
     override fun onDestroy() {
