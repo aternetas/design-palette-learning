@@ -7,7 +7,6 @@ import androidx.core.animation.doOnEnd
 import androidx.core.view.isVisible
 import com.example.designpalettelearning.activities.extensions.MyAppCompatActivity
 import com.example.designpalettelearning.activities.listview.ListViewActivity
-import com.example.designpalettelearning.activities.listview.SimpleAdapterUsage
 import com.example.designpalettelearning.databinding.MainScreenActivityBinding
 
 class MainScreenActivity : MyAppCompatActivity("MainScreen") {

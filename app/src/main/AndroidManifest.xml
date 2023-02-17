@@ -46,7 +46,11 @@
             android:exported="false"
             android:launchMode="singleInstance" />
         <activity
-            android:name=".activities.listview.SimpleAdapterUsage"
+            android:name=".activities.listview.adapters.SimpleAdapterUsage"
+            android:exported="false"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".activities.listview.adapters.ArrayAdapterUsage"
             android:exported="false"
             android:launchMode="singleInstance" />
     </application>

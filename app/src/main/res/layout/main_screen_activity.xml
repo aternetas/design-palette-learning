@@ -44,7 +44,7 @@
     <Button
         android:id="@+id/buttonListView"
         style="@style/MyButtonStyle"
-        android:text="@string/button_list_view"
+        android:text="@string/list_view"
         app:layout_constraintEnd_toEndOf="@+id/buttonEditText"
         app:layout_constraintStart_toStartOf="@+id/buttonEditText"
         app:layout_constraintTop_toBottomOf="@+id/buttonEditText" />

@@ -4,6 +4,7 @@
     <string name="image_view">Image View</string>
     <string name="button">Button</string>
     <string name="edit_text">Edit Text</string>
+    <string name="list_view">List View</string>
     <string name="a_frog">A frog</string>
     <string name="ordinals">first second third fourth fifth sixth seventh eights</string>
     <string name="get_random_image">Get random image</string>
@@ -18,4 +19,5 @@
     <string name="enter_a_keyword">Enter a keyword</string>
     <string name="enter_keyword">Enter keyword</string>
     <string name="simple_adapter">Simple Adapter</string>
+    <string name="array_adapter">Array Adapter</string>
 </resources>

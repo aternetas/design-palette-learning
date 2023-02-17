@@ -1,4 +1,4 @@
-package com.example.designpalettelearning.activities.listview
+package com.example.designpalettelearning.activities.listview.adapters
 
 import android.app.AlertDialog
 import android.os.Bundle

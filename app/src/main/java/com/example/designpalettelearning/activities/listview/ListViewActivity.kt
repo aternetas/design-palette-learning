@@ -1,10 +1,10 @@
 package com.example.designpalettelearning.activities.listview
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.designpalettelearning.R
 import com.example.designpalettelearning.activities.extensions.MyAppCompatActivity
+import com.example.designpalettelearning.activities.listview.adapters.ArrayAdapterUsage
+import com.example.designpalettelearning.activities.listview.adapters.SimpleAdapterUsage
 import com.example.designpalettelearning.databinding.ListViewActivityBinding
 
 class ListViewActivity : MyAppCompatActivity("ListView") {
@@ -21,6 +21,11 @@ class ListViewActivity : MyAppCompatActivity("ListView") {
     private fun createActions() {
         binding.buttonSimpleAdapter.setOnClickListener {
             val intent = Intent(this, SimpleAdapterUsage::class.java)
+            startActivity(intent)
+        }
+
+        binding.buttonArrayAdapter.setOnClickListener {
+            val intent = Intent(this, ArrayAdapterUsage::class.java)
             startActivity(intent)
         }
     }
