@@ -14,7 +14,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.23000002" />
+        app:layout_constraintVertical_bias="0.23000002"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
         android:id="@+id/buttonImageView"
@@ -39,6 +40,14 @@
         app:layout_constraintEnd_toEndOf="@+id/buttonButton"
         app:layout_constraintStart_toStartOf="@+id/buttonButton"
         app:layout_constraintTop_toBottomOf="@+id/buttonButton" />
+
+    <Button
+        android:id="@+id/buttonListView"
+        style="@style/MyButtonStyle"
+        android:text="@string/button_list_view"
+        app:layout_constraintEnd_toEndOf="@+id/buttonEditText"
+        app:layout_constraintStart_toStartOf="@+id/buttonEditText"
+        app:layout_constraintTop_toBottomOf="@+id/buttonEditText" />
 
     <ProgressBar
         android:id="@+id/progressBarHorizontal"

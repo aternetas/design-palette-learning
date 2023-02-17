@@ -4,6 +4,7 @@
     <string name="button_image_view">Image View</string>
     <string name="button_button">Button</string>
     <string name="button_edit_text">Edit Text</string>
+    <string name="button_list_view">List View</string>
     <string name="a_frog">A frog</string>
     <string name="ordinals">first second third fourth fifth sixth seventh eights</string>
     <string name="get_random_image">Get random image</string>

@@ -40,6 +40,11 @@ class MainScreenActivity : MyAppCompatActivity("MainScreen") {
             val intent = Intent(this, EditTextActivity::class.java)
             showProgressBar { if (it) { startActivity(intent) } }
         }
+
+        binding.buttonListView.setOnClickListener {
+            val intent = Intent(this, ListViewActivity::class.java)
+            showProgressBar { if (it) { startActivity(intent) } }
+        }
     }
 
     private fun showProgressBar(compl: (Boolean) -> Unit) {
