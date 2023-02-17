@@ -3,23 +3,21 @@ package com.example.designpalettelearning.activities
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.View
-import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.RadioButton
-import android.widget.RadioGroup
-import androidx.core.view.*
+import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import com.example.designpalettelearning.R
 import com.example.designpalettelearning.activities.constants.InputType
 import com.example.designpalettelearning.activities.extensions.MyAppCompatActivity
 import com.example.designpalettelearning.databinding.EditTextActivityBinding
 import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
+import kotlin.properties.Delegates.notNull
 
 class EditTextActivity : MyAppCompatActivity("EditText") {
     private lateinit var binding: EditTextActivityBinding
@@ -32,7 +30,7 @@ class EditTextActivity : MyAppCompatActivity("EditText") {
             encodedKeyword = URLEncoder.encode(value, StandardCharsets.UTF_8.name())
             field = value
         }
-    private lateinit var encodedKeyword: String
+    private var encodedKeyword by notNull<String>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
