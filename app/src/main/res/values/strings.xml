@@ -18,4 +18,5 @@
     <string name="city">City</string>
     <string name="enter_a_keyword">Enter a keyword</string>
     <string name="enter_keyword">Enter keyword</string>
+    <string name="simple_adapter">Simple Adapter</string>
 </resources>

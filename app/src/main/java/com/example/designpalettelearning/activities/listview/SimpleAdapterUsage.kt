@@ -1,18 +1,18 @@
-package com.example.designpalettelearning.activities
+package com.example.designpalettelearning.activities.listview
 
 import android.app.AlertDialog
 import android.os.Bundle
 import android.widget.AdapterView
 import android.widget.SimpleAdapter
 import com.example.designpalettelearning.activities.extensions.MyAppCompatActivity
-import com.example.designpalettelearning.databinding.ListViewActivityBinding
+import com.example.designpalettelearning.databinding.SimpleAdapterUsageBinding
 
-class ListViewActivity : MyAppCompatActivity("ListView") {
-    private lateinit var binding: ListViewActivityBinding
+class SimpleAdapterUsage : MyAppCompatActivity("SimpleAdapterUsage") {
+    private lateinit var binding: SimpleAdapterUsageBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ListViewActivityBinding.inflate(layoutInflater)
+        binding = SimpleAdapterUsageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setupListView()
@@ -45,7 +45,7 @@ class ListViewActivity : MyAppCompatActivity("ListView") {
         val adapter = SimpleAdapter(
             this,
             data,
-            android.R.layout.simple_list_item_multiple_choice,
+            android.R.layout.simple_list_item_2,
             arrayOf(KEY_TITLE, KEY_DESCRIPTION),
             intArrayOf(android.R.id.text1, android.R.id.text2)
         )
