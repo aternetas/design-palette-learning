@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Design Palette</string>
-    <string name="button_text_view">Text View</string>
-    <string name="button_image_view">Image View</string>
-    <string name="button_button">Button</string>
-    <string name="button_edit_text">Edit Text</string>
+    <string name="text_view">Text View</string>
+    <string name="image_view">Image View</string>
+    <string name="button">Button</string>
+    <string name="edit_text">Edit Text</string>
     <string name="a_frog">A frog</string>
     <string name="ordinals">first second third fourth fifth sixth seventh eights</string>
     <string name="get_random_image">Get random image</string>

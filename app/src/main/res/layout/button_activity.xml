@@ -21,7 +21,7 @@
 
     <Button
         android:id="@+id/getRandomImageButton"
-        style="@style/MyButtonStyle.WideButton"
+        style="@style/MyButtonStyle.MatchConstrainWidthButton"
         android:layout_marginTop="@dimen/common_margin_50_dp"
         android:text="@string/get_random_image"
         app:layout_constraintEnd_toEndOf="@+id/randomImageView"
