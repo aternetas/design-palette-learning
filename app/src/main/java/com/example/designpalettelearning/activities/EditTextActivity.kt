@@ -3,9 +3,11 @@ package com.example.designpalettelearning.activities
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.RadioButton
-import androidx.core.view.isVisible
+import android.widget.RadioGroup
+import androidx.core.view.*
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -38,6 +40,11 @@ class EditTextActivity : MyAppCompatActivity("EditText") {
         binding = EditTextActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        createActions()
+        updateUi()
+    }
+
+    private fun createActions() {
         binding.getRandomImageButton2.setOnClickListener {
             onGetRandomImagePressed()
         }
@@ -73,11 +80,9 @@ class EditTextActivity : MyAppCompatActivity("EditText") {
             }
             return@setOnEditorActionListener false
         }
-
-        updateUi()
     }
 
-    fun onGetRandomImagePressed() {
+    private fun onGetRandomImagePressed() {
         when (inputType) {
             InputType.SELECT -> {
                 val checkId = binding.keywordsRadioGroup.checkedRadioButtonId
@@ -87,6 +92,7 @@ class EditTextActivity : MyAppCompatActivity("EditText") {
             InputType.ENTER -> {
                 keyword = binding.keywordEditText.text.toString()
                 if (keyword.isBlank()) {
+                    binding.keywordEditText.error = "Keyword is empty"
                     return
                 }
             }
@@ -96,6 +102,10 @@ class EditTextActivity : MyAppCompatActivity("EditText") {
             }
         }
 
+        uploadAndSetImage()
+    }
+
+    private fun uploadAndSetImage() {
         binding.progressBar.visibility = View.VISIBLE
         Glide.with(this)
             .load("https://source.unsplash.com/random/800x600?$encodedKeyword")
@@ -112,8 +122,8 @@ class EditTextActivity : MyAppCompatActivity("EditText") {
                     return false
                 }
             })
-//                for background image during loading
-//            .placeholder(R.drawable.image_downloading)
+//for background image during loading
+//          .placeholder(R.drawable.image_downloading)
             .into(binding.imageView)
     }
 
