@@ -65,7 +65,7 @@ class ArrayAdapterUsage : MyAppCompatActivity("ArrayAdapterUsage") {
     private fun onAddPressed() {
         val dialogBinding = DialogAddPersonBinding.inflate(layoutInflater)
         val dialog = AlertDialog.Builder(this)
-            .setTitle(R.string.add_person_title)
+            .setTitle(R.string.create_user)
             .setView(dialogBinding.root)
             .setPositiveButton(R.string.add) { dialog, which ->
                 val name = dialogBinding.personNameET.text.toString()
@@ -92,8 +92,8 @@ class ArrayAdapterUsage : MyAppCompatActivity("ArrayAdapterUsage") {
             }
         }
         val dialog = AlertDialog.Builder(this)
-            .setTitle(R.string.delete_person_title)
-            .setMessage(resources.getString(R.string.delete_person_message, person))
+            .setTitle(R.string.delete_user)
+            .setMessage(resources.getString(R.string.delete_user_message, person))
             .setPositiveButton(R.string.delete, listener)
             .setNegativeButton(R.string.cancel, listener)
             .create()

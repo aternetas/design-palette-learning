@@ -13,7 +13,7 @@ typealias onDeleteUserListener = (User) -> Unit
 class UserAdapter(
     private val users: List<User>,
     private val onDeleteUserListener: onDeleteUserListener
-) : BaseAdapter(), View.OnClickListener {
+    ) : BaseAdapter() {
 
     override fun getCount(): Int {
         return users.size
@@ -36,15 +36,17 @@ class UserAdapter(
         return binding.root
     }
 
-    override fun onClick(v: View) {
-        val user = v.tag as User
-        onDeleteUserListener.invoke(user)
-    }
-
     private fun createBinding(context: Context): ItemUserBinding {
         val binding = ItemUserBinding.inflate(LayoutInflater.from(context))
-        binding.deleteUserIV.setOnClickListener(this)
+        binding.deleteUserIV.setOnClickListener {
+            deleteUser(it)
+        }
         binding.root.tag = binding
         return binding
+    }
+
+    private fun deleteUser(v: View) {
+        val user = v.tag as User
+        onDeleteUserListener.invoke(user)
     }
 }
