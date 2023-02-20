@@ -5,9 +5,11 @@ import android.content.DialogInterface
 import android.os.Bundle
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import com.example.designpalettelearning.R
 import com.example.designpalettelearning.activities.extensions.MyAppCompatActivity
 import com.example.designpalettelearning.databinding.ArrayAdapterUsageBinding
-import java.util.UUID
+import com.example.designpalettelearning.databinding.DialogAddPersonBinding
+import java.util.*
 
 class ArrayAdapterUsage : MyAppCompatActivity("ArrayAdapterUsage") {
     private lateinit var binding: ArrayAdapterUsageBinding
@@ -56,19 +58,44 @@ class ArrayAdapterUsage : MyAppCompatActivity("ArrayAdapterUsage") {
         binding.listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
             adapter.getItem(position)?.let { deletePerson(it) }
         }
+
+        binding.addPersonFAB.setOnClickListener { onAddPressed() }
+    }
+
+    private fun onAddPressed() {
+        val dialogBinding = DialogAddPersonBinding.inflate(layoutInflater)
+        val dialog = AlertDialog.Builder(this)
+            .setTitle(R.string.add_person_title)
+            .setView(dialogBinding.root)
+            .setPositiveButton(R.string.add) { dialog, which ->
+                val name = dialogBinding.personNameET.text.toString()
+                if (name.isNotBlank()) {
+                    createPerson(name)
+                }
+            }
+            .create()
+        dialog.show()
+    }
+
+    private fun createPerson(name: String) {
+        val person = Person(
+            UUID.randomUUID().toString(),
+            name
+        )
+        adapter.add(person)
     }
 
     private fun deletePerson(person: Person) {
-        val listener = DialogInterface.OnClickListener { dialog, which ->
+        val listener = DialogInterface.OnClickListener { _, which ->
             if (which == DialogInterface.BUTTON_POSITIVE) {
                 adapter.remove(person)
             }
         }
         val dialog = AlertDialog.Builder(this)
-            .setTitle("Delete person")
-            .setMessage("Do you want to delete this person?")
-            .setPositiveButton("Delete", listener)
-            .setNegativeButton("Cancel", listener)
+            .setTitle(R.string.delete_person_title)
+            .setMessage(resources.getString(R.string.delete_person_message, person))
+            .setPositiveButton(R.string.delete_person_positive_text, listener)
+            .setNegativeButton(R.string.delete_person_negative_text, listener)
             .create()
         dialog.show()
     }

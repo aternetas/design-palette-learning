@@ -7,6 +7,8 @@ import android.widget.SimpleAdapter
 import com.example.designpalettelearning.activities.extensions.MyAppCompatActivity
 import com.example.designpalettelearning.databinding.SimpleAdapterUsageBinding
 
+private const val KEY_TITLE = "Name"
+private const val KEY_DESCRIPTION = "Phone"
 class SimpleAdapterUsage : MyAppCompatActivity("SimpleAdapterUsage") {
     private lateinit var binding: SimpleAdapterUsageBinding
 
@@ -64,10 +66,5 @@ class SimpleAdapterUsage : MyAppCompatActivity("SimpleAdapterUsage") {
 
             dialog.show()
         }
-    }
-
-    companion object {
-        @JvmStatic val KEY_TITLE = "Name"
-        @JvmStatic val KEY_DESCRIPTION = "Phone"
     }
 }
