@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import com.example.designpalettelearning.activities.extensions.MyAppCompatActivity
 import com.example.designpalettelearning.activities.listview.adapters.ArrayAdapterUsage
+import com.example.designpalettelearning.activities.listview.adapters.BaseAdapterUsage
 import com.example.designpalettelearning.activities.listview.adapters.SimpleAdapterUsage
 import com.example.designpalettelearning.databinding.ListViewActivityBinding
 
@@ -26,6 +27,11 @@ class ListViewActivity : MyAppCompatActivity("ListView") {
 
         binding.buttonArrayAdapter.setOnClickListener {
             val intent = Intent(this, ArrayAdapterUsage::class.java)
+            startActivity(intent)
+        }
+
+        binding.buttonBaseAdapter.setOnClickListener {
+            val intent = Intent(this, BaseAdapterUsage::class.java)
             startActivity(intent)
         }
     }

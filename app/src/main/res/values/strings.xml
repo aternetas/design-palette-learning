@@ -20,11 +20,12 @@
     <string name="enter_keyword">Enter keyword</string>
     <string name="simple_adapter">Simple Adapter</string>
     <string name="array_adapter">Array Adapter</string>
+    <string name="base_adapter">Base Adapter</string>
     <string name="add_person_title">Create person</string>
     <string name="delete_person_title">Delete person</string>
     <string name="delete_person_message">Do you want to delete %1$s?</string>
-    <string name="delete_person_positive_text">Delete</string>
-    <string name="delete_person_negative_text">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
     <string name="add">Add</string>
     <string name="write_a_name">Write a name</string>
 </resources>

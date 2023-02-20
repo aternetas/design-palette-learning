@@ -94,8 +94,8 @@ class ArrayAdapterUsage : MyAppCompatActivity("ArrayAdapterUsage") {
         val dialog = AlertDialog.Builder(this)
             .setTitle(R.string.delete_person_title)
             .setMessage(resources.getString(R.string.delete_person_message, person))
-            .setPositiveButton(R.string.delete_person_positive_text, listener)
-            .setNegativeButton(R.string.delete_person_negative_text, listener)
+            .setPositiveButton(R.string.delete, listener)
+            .setNegativeButton(R.string.cancel, listener)
             .create()
         dialog.show()
     }

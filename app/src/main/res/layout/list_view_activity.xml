@@ -25,4 +25,12 @@
         app:layout_constraintHorizontal_bias="0.46"
         app:layout_constraintStart_toStartOf="@+id/buttonSimpleAdapter"
         app:layout_constraintTop_toBottomOf="@+id/buttonSimpleAdapter" />
+
+    <Button
+        android:id="@+id/buttonBaseAdapter"
+        style="@style/MyButtonStyle.WideButton"
+        android:text="@string/base_adapter"
+        app:layout_constraintEnd_toEndOf="@+id/buttonArrayAdapter"
+        app:layout_constraintStart_toStartOf="@+id/buttonArrayAdapter"
+        app:layout_constraintTop_toBottomOf="@+id/buttonArrayAdapter" />
 </androidx.constraintlayout.widget.ConstraintLayout>
