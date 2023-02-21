@@ -12,11 +12,11 @@ import kotlin.random.Random
 class BaseAdapterUsage : MyAppCompatActivity("BaseAdapter") {
     private lateinit var binding: BaseAdapterUsageBinding
     private val data = mutableListOf(
-        User(Random.nextLong(), "Gefen Vasilev"),
-        User(Random.nextLong(), "Alaba Devlin"),
-        User(Random.nextLong(), "Jaiden Rice"),
-        User(Random.nextLong(), "Jinan Waterman"),
-        User(Random.nextLong(), "Kahurangi Lindgren")
+        User(getRandomNumber(), "Gefen Vasilev"),
+        User(getRandomNumber(), "Alaba Devlin"),
+        User(getRandomNumber(), "Jaiden Rice"),
+        User(getRandomNumber(), "Jinan Waterman"),
+        User(getRandomNumber(), "Kahurangi Lindgren")
     )
     private lateinit var adapter: UserAdapter
 
@@ -28,10 +28,31 @@ class BaseAdapterUsage : MyAppCompatActivity("BaseAdapter") {
         setupList()
     }
 
+    private fun getRandomNumber(): Long = Random.nextLong(100000, 999999)
+
     private fun setupList() {
         adapter = UserAdapter(data) { deleteUser(it) }
 
         binding.listView.adapter = adapter
+
+        binding.listView.setOnItemClickListener { _, _, position, _ ->
+            showUserInfo(adapter.getItem(position))
+        }
+    }
+
+    private fun createUser(name: String) {
+        val user = User(getRandomNumber(), name)
+        data.add(user)
+        adapter.notifyDataSetChanged()
+    }
+
+    private fun showUserInfo(user: User) {
+        val dialog = AlertDialog.Builder(this)
+            .setTitle(R.string.info)
+            .setMessage("${user.name}\nId: ${user.id}")
+            .setPositiveButton(R.string.ok) { _, _ -> }
+            .create()
+        dialog.show()
     }
 
     private fun deleteUser(user: User) {
