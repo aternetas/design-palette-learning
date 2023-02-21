@@ -15,6 +15,8 @@
             android:layout_height="wrap_content"
             android:hint="@string/write_a_name"
             android:background="@color/white"
+            android:inputType="text"
+            android:imeOptions="actionDone"
             android:paddingStart="0dp"
             android:paddingEnd="0dp"
             />

@@ -14,16 +14,6 @@
         android:theme="@style/Theme.DesignPaletteLearning"
         tools:targetApi="31" >
         <activity
-            android:name=".activities.listview.ListViewActivity"
-            android:exported="true"
-            android:launchMode="singleInstance" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".activities.MainScreenActivity"
             android:exported="true" >
             <intent-filter>
@@ -44,6 +34,10 @@
         <activity
             android:name=".activities.EditTextActivity"
             android:exported="false"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".activities.listview.ListViewActivity"
+            android:exported="true"
             android:launchMode="singleInstance" />
         <activity
             android:name=".activities.listview.adapters.SimpleAdapterUsage"

@@ -3,10 +3,12 @@ package com.example.designpalettelearning.activities.listview.adapters
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
+import android.view.inputmethod.EditorInfo
 import com.example.designpalettelearning.R
 import com.example.designpalettelearning.activities.extensions.MyAppCompatActivity
 import com.example.designpalettelearning.activities.listview.User
 import com.example.designpalettelearning.databinding.BaseAdapterUsageBinding
+import com.example.designpalettelearning.databinding.DialogAddPersonBinding
 import kotlin.random.Random
 
 class BaseAdapterUsage : MyAppCompatActivity("BaseAdapter") {
@@ -38,6 +40,36 @@ class BaseAdapterUsage : MyAppCompatActivity("BaseAdapter") {
         binding.listView.setOnItemClickListener { _, _, position, _ ->
             showUserInfo(adapter.getItem(position))
         }
+
+        binding.addFAB.setOnClickListener { onAddPressed() }
+    }
+
+    private fun onAddPressed() = createNewUserDialog()
+
+    private fun createNewUserDialog() {
+        val dialogBinging = DialogAddPersonBinding.inflate(layoutInflater)
+        dialogBinging.personNameET.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                val name = dialogBinging.personNameET.text.toString()
+                if (name.isBlank()) {
+                    dialogBinging.personNameET.error = "Name is empty"
+                    return@setOnEditorActionListener true
+                }
+            }
+            return@setOnEditorActionListener false
+        }
+
+        val dialog = AlertDialog.Builder(this)
+            .setTitle(R.string.create_user)
+            .setView(dialogBinging.root)
+            .setPositiveButton(R.string.create) { _, _ ->
+                val name = dialogBinging.personNameET.text.toString()
+                if (name.isNotBlank()) {
+                    createUser(name)
+                }
+            }
+            .create()
+        dialog.show()
     }
 
     private fun createUser(name: String) {
@@ -56,7 +88,7 @@ class BaseAdapterUsage : MyAppCompatActivity("BaseAdapter") {
     }
 
     private fun deleteUser(user: User) {
-        val listener = DialogInterface.OnClickListener { dialog, which ->
+        val listener = DialogInterface.OnClickListener { _, which ->
             if (which == DialogInterface.BUTTON_POSITIVE) {
                 data.remove(user)
                 adapter.notifyDataSetChanged()

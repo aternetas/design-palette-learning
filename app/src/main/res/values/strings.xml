@@ -26,6 +26,7 @@
     <string name="info">Info</string>
     <string name="delete_user_message">Do you want to delete %1$s?</string>
     <string name="ok">OK</string>
+    <string name="create">Create</string>
     <string name="delete">Delete</string>
     <string name="cancel">Cancel</string>
     <string name="add">Add</string>

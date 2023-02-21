@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.os.Bundle
 import android.widget.AdapterView
 import android.widget.SimpleAdapter
+import com.example.designpalettelearning.R
 import com.example.designpalettelearning.activities.extensions.MyAppCompatActivity
 import com.example.designpalettelearning.databinding.SimpleAdapterUsageBinding
 
@@ -60,10 +61,8 @@ class SimpleAdapterUsage : MyAppCompatActivity("SimpleAdapterUsage") {
             val dialog = AlertDialog.Builder(this)
                 .setTitle(selectedItemTitle)
                 .setMessage(selectedItemDescription)
-                .setPositiveButton("Ok") { _, _ -> }
-                .setNegativeButton("No") { _, _ -> }
+                .setPositiveButton(R.string.ok) { _, _ -> }
                 .create()
-
             dialog.show()
         }
     }
