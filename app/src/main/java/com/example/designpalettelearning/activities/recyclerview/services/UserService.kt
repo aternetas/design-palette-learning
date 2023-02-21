@@ -1,4 +1,4 @@
-package com.example.designpalettelearning.activities.recyclerview
+package com.example.designpalettelearning.activities.recyclerview.services
 
 import com.example.designpalettelearning.activities.recyclerview.models.User
 import com.github.javafaker.Faker
@@ -13,14 +13,14 @@ class UserService {
     init {
         val faker = Faker.instance()
         IMAGES.shuffle()
-        val generatedUsers = (1..100).map {
+        users = (1..100).map {
             User(
                 it.toLong(),
                 faker.funnyName().name(),
                 IMAGES[it % IMAGES.size],
                 faker.company().name()
             )
-        }
+        }.toMutableList()
     }
 
     fun getUsers(): List<User> = users
