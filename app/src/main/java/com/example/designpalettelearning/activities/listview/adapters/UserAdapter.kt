@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import com.example.designpalettelearning.activities.listview.User
-import com.example.designpalettelearning.databinding.ItemUserBinding
+import com.example.designpalettelearning.databinding.ItemUserForListViewBinding
 
 typealias onDeleteUserListener = (User) -> Unit
 
@@ -28,7 +28,7 @@ class UserAdapter(
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val binding = convertView?.tag as ItemUserBinding? ?: createBinding(parent.context)
+        val binding = convertView?.tag as ItemUserForListViewBinding? ?: createBinding(parent.context)
         val user = getItem(position)
         binding.userTV.text = user.name
         binding.deleteUserIV.tag = user
@@ -36,8 +36,8 @@ class UserAdapter(
         return binding.root
     }
 
-    private fun createBinding(context: Context): ItemUserBinding {
-        val binding = ItemUserBinding.inflate(LayoutInflater.from(context))
+    private fun createBinding(context: Context): ItemUserForListViewBinding {
+        val binding = ItemUserForListViewBinding.inflate(LayoutInflater.from(context))
         binding.deleteUserIV.setOnClickListener {
             deleteUser(it)
         }
