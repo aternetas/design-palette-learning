@@ -1,6 +1,5 @@
 package com.example.designpalettelearning.activities
 
-import android.graphics.Color
 import android.os.Bundle
 import com.example.designpalettelearning.R
 import com.example.designpalettelearning.activities.extensions.MyAppCompatActivity
