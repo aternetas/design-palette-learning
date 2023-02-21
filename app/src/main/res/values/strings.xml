@@ -5,6 +5,7 @@
     <string name="button">Button</string>
     <string name="edit_text">Edit Text</string>
     <string name="list_view">List View</string>
+    <string name="recycler_view">Recycler View</string>
     <string name="a_frog">A frog</string>
     <string name="ordinals">first second third fourth fifth sixth seventh eights</string>
     <string name="get_random_image">Get random image</string>

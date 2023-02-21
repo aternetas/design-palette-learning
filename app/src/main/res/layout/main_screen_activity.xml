@@ -49,6 +49,14 @@
         app:layout_constraintStart_toStartOf="@+id/buttonEditText"
         app:layout_constraintTop_toBottomOf="@+id/buttonEditText" />
 
+    <Button
+        android:id="@+id/buttonRecyclerView"
+        style="@style/MyButtonStyle"
+        android:text="@string/recycler_view"
+        app:layout_constraintEnd_toEndOf="@+id/buttonListView"
+        app:layout_constraintStart_toStartOf="@+id/buttonListView"
+        app:layout_constraintTop_toBottomOf="@+id/buttonListView" />
+
     <ProgressBar
         android:id="@+id/progressBarHorizontal"
         style="?android:attr/progressBarStyleHorizontal"

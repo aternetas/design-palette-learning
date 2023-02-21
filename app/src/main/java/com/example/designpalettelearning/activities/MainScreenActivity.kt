@@ -7,6 +7,7 @@ import androidx.core.animation.doOnEnd
 import androidx.core.view.isVisible
 import com.example.designpalettelearning.activities.extensions.MyAppCompatActivity
 import com.example.designpalettelearning.activities.listview.ListViewActivity
+import com.example.designpalettelearning.activities.recyclerview.RecyclerViewActivity
 import com.example.designpalettelearning.databinding.MainScreenActivityBinding
 
 class MainScreenActivity : MyAppCompatActivity("MainScreen") {
@@ -34,7 +35,6 @@ class MainScreenActivity : MyAppCompatActivity("MainScreen") {
         binding.buttonButton.setOnClickListener {
             val intent = Intent(this, ButtonActivity::class.java)
             showProgressBar { if (it) { startActivity(intent) } }
-
         }
 
         binding.buttonEditText.setOnClickListener {
@@ -44,6 +44,11 @@ class MainScreenActivity : MyAppCompatActivity("MainScreen") {
 
         binding.buttonListView.setOnClickListener {
             val intent = Intent(this, ListViewActivity::class.java)
+            showProgressBar { if (it) { startActivity(intent) } }
+        }
+
+        binding.buttonRecyclerView.setOnClickListener {
+            val intent = Intent(this, RecyclerViewActivity::class.java)
             showProgressBar { if (it) { startActivity(intent) } }
         }
     }
