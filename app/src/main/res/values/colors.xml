@@ -12,4 +12,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+<!--for recyclerview-->
+    <color name="light_green">#F044DE6F</color>
+    <color name="green">#FF007521</color>
+    <color name="gray">#FF636363</color>
 </resources>
