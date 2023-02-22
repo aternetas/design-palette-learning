@@ -34,4 +34,6 @@
     <string name="write_a_name">Write a name</string>
     <string name="avatar">Avatar</string>
     <string name="more">More Actions</string>
+    <string name="move_up">Move Up</string>
+    <string name="move_down">Move Down</string>
 </resources>
