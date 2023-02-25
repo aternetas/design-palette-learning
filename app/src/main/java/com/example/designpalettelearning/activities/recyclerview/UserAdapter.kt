@@ -1,11 +1,11 @@
 package com.example.designpalettelearning.activities.recyclerview
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.designpalettelearning.R
@@ -16,16 +16,33 @@ interface UserActionsListener {
     fun onUserMove(user: User, moveBy: Int)
     fun onUserInfo(user: User)
     fun onUserDelete(user: User)
+    fun onUserFire(user: User)
+}
+
+class UserDiffUtils(
+    private val oldList: List<User>,
+    private val newList: List<User>
+) : DiffUtil.Callback() {
+    override fun getOldListSize(): Int = oldList.size
+
+    override fun getNewListSize(): Int = newList.size
+
+    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
+        oldList[oldItemPosition].id == newList[newItemPosition].id
+
+    override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
+        oldList[oldItemPosition] == newList[newItemPosition]
 }
 
 class UserAdapter(
     private val actionListener: UserActionsListener
 ) : RecyclerView.Adapter<UserAdapter.UserViewHolder>(), View.OnClickListener {
     var users: List<User> = emptyList()
-        @SuppressLint("NotifyDataSetChanged")
         set(newValue) {
+            val diffUtils = UserDiffUtils(field, newValue)
+            val diffResult = DiffUtil.calculateDiff(diffUtils)
             field = newValue
-            notifyDataSetChanged()
+            diffResult.dispatchUpdatesTo(this)
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
@@ -40,11 +57,12 @@ class UserAdapter(
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val user = users[position]
+        val context = holder.itemView.context
         with(holder.binding) {
             holder.itemView.tag = user
             moreActionsIV.tag = user
             nameTV.text = user.name
-            companyTV.text = user.company
+            companyTV.text = user.company.ifBlank { context.getString(R.string.unemployed) }
             if (user.photo.isNotBlank()) {
                 Glide.with(avatarIV.context)
                     .load(user.photo)
@@ -87,6 +105,9 @@ class UserAdapter(
             add(0, MOVE_DOWN, Menu.NONE, context.getString(R.string.move_down)).apply {
                 isEnabled = position < users.size - 1
             }
+            if (user.company.isNotBlank()) {
+                add(0, FIRE, Menu.NONE, context.getString(R.string.fire))
+            }
             add(0, DELETE, Menu.NONE, context.getString(R.string.delete))
         }
 
@@ -97,6 +118,9 @@ class UserAdapter(
                 }
                 MOVE_DOWN -> {
                     actionListener.onUserMove(user, 1)
+                }
+                FIRE -> {
+                    actionListener.onUserFire(user)
                 }
                 DELETE -> {
                     actionListener.onUserDelete(user)
@@ -113,6 +137,7 @@ class UserAdapter(
     companion object {
         private const val MOVE_UP = 1
         private const val MOVE_DOWN = 2
-        private const val DELETE = 3
+        private const val FIRE = 3
+        private const val DELETE = 4
     }
 }

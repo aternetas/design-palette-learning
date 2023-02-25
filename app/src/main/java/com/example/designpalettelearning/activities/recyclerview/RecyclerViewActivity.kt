@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
 import android.widget.Toast
+import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.designpalettelearning.R
 import com.example.designpalettelearning.activities.extensions.MyAppCompatActivity
@@ -33,6 +34,10 @@ class RecyclerViewActivity : MyAppCompatActivity("Recycler View"), UserActionsLi
         val layoutManager = LinearLayoutManager(this)
         binding.rV.layoutManager = layoutManager
         binding.rV.adapter = adapter
+        val itemAnimator = binding.rV.itemAnimator
+        if (itemAnimator is DefaultItemAnimator) {
+            itemAnimator.supportsChangeAnimations = false
+        }
 
         userService.addListener(userListener)
     }
@@ -49,6 +54,10 @@ class RecyclerViewActivity : MyAppCompatActivity("Recycler View"), UserActionsLi
 
     override fun onUserInfo(user: User) {
         Toast.makeText(this@RecyclerViewActivity, "User: ${user.name}", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onUserFire(user: User) {
+        userService.fireUser(user)
     }
 
     override fun onUserDelete(user: User) {

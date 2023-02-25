@@ -26,9 +26,19 @@ class UserService {
     fun deleteUser(user: User) {
         val userIndex: Int = users.indexOfFirst { it.id == user.id }
         if (userIndex != -1) {
+            users = ArrayList(users)
             users.removeAt(userIndex)
             notifyChanges()
         }
+    }
+
+    fun fireUser(user: User) {
+        val userIndex = users.indexOfFirst { it.id == user.id }
+        if (userIndex == -1) return
+        val unemployedUser = users[userIndex].copy(company = "")
+        users = ArrayList(users)
+        users[userIndex] = unemployedUser
+        notifyChanges()
     }
 
     fun moveUser(user: User, moveBy: Int) {
@@ -36,6 +46,7 @@ class UserService {
         if (oldIndex == -1) return
         val newIndex = oldIndex + moveBy
         if (newIndex < 0 || newIndex >= users.size) return
+        users = ArrayList(users)
         Collections.swap(users, oldIndex, newIndex)
         notifyChanges()
     }
