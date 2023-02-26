@@ -4,8 +4,11 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.designpalettelearning.R
 import com.example.designpalettelearning.activities.extensions.MyAppCompatActivity
 import com.example.designpalettelearning.activities.recyclerview.models.User
@@ -40,6 +43,11 @@ class RecyclerViewActivity : MyAppCompatActivity("Recycler View"), UserActionsLi
         }
 
         userService.addListener(userListener)
+
+        val dividerItemDecoration = DividerItemDecoration(this, RecyclerView.VERTICAL)
+        ResourcesCompat.getDrawable(resources, R.drawable.item_divider, null)
+            ?.let { drawable -> dividerItemDecoration.setDrawable(drawable) }
+        binding.rV.addItemDecoration(dividerItemDecoration)
     }
 
     override fun onDestroy() {
